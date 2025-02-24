@@ -24,3 +24,11 @@ The methodologies implemented in MorpHist are detailed in the accompanying resea
 - **User-Friendly GUI:** The intuitive interface supports both single-image and batch processing modes.
 - **Configurable Parameters:** Easily adjust detection thresholds, kernel sizes, pixel dimensions, annotation styles, and more through the GUI.
 - **Persistent Settings:** User preferences are saved between sessions to streamline repetitive tasks.
+
+---
+
+## Contact
+For questions, suggestions, or bug reports, please contact:
+- Edgars Edelmers – edgars.edelmers@disroot.org
+
+Or open an issue on the GitHub repository.
