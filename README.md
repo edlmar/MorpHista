@@ -1,6 +1,6 @@
 # MorpHista
 
-**MorpHista** is a Python-based GUI application for morphology-based histological image segmentation and tissue analysis. It automates the detection and quantification of interstitial cells of Cajal (ICC) in histopathological images using state-of-the-art deep neural network (DNN) techniques and classical image processing methods.
+**MorpHista** is an application for morphology-based histological image segmentation and tissue analysis. It automates the detection and quantification of interstitial cells of Cajal (ICC) in histopathological images using state-of-the-art deep neural network techniques and classical image processing methods.
 
 ---
 
