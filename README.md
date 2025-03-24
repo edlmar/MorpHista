@@ -7,8 +7,8 @@
 ## Overview
 
 MorpHist was developed as part of a research project focused on improving the accuracy and reproducibility of histological analysis. By integrating a AI model for cell detection with advanced tissue segmentation methods, MorpHist facilitates:
-- **Automated Detection:** Efficient identification of ICC cells in whole slide images.
-- **Tissue Segmentation:** Generation of high-quality tissue masks.
+- **Automated Detection:** Identification of ICC cells in whole slide images.
+- **Tissue Segmentation:** Generation of tissue masks.
 - **Batch Processing:** Capability to process single images or entire folders, enabling high-throughput analysis.
 - **Detailed Reporting:** Annotated output images and comprehensive statistical summaries for each processed image.
 
@@ -18,10 +18,10 @@ The methodologies implemented in MorpHist are detailed in the accompanying resea
 
 ## Features
 
-- **Deep Learning Detection:** Leverages a AI model to accurately detect ICC cells.
-- **Tissue Mask Generation:** Uses adaptive thresholding and filtering to create precise tissue masks.
-- **Whole Slide Image Processing:** Efficiently handles large histological images.
-- **User-Friendly GUI:** The intuitive interface supports both single-image and batch processing modes.
+- **Deep Learning Detection:** Utilizes a AI model to detect ICC cells.
+- **Tissue Mask Generation:** Uses adaptive thresholding and filtering to create tissue masks.
+- **Whole Slide Image Processing:** Handles large histological images.
+- **User-Friendly GUI:** The interface supports both single-image and batch processing modes.
 - **Configurable Parameters:** Easily adjust detection thresholds, kernel sizes, pixel dimensions, annotation styles, and more through the GUI.
 - **Persistent Settings:** User preferences are saved between sessions to streamline repetitive tasks.
 
