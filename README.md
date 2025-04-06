@@ -4,6 +4,28 @@
 
 ---
 
+## Citation
+
+If you use this work in your research or projects, please cite the original article as:
+
+```bibtex
+@article{Fisere2025,
+  author = {Fišere, I. and Edelmers, E. and Svirskis, Š. and Groma, V.},
+  title = {Utilisation of Deep Neural Networks for Estimation of Cajal Cells in the Anal Canal Wall of Patients with Advanced Haemorrhoidal Disease Treated by LigaSure Surgery},
+  journal = {Cells},
+  year = {2025},
+  volume = {14},
+  number = {7},
+  article-number = {550},
+  doi = {10.3390/cells14070550},
+  url = {https://doi.org/10.3390/cells14070550}
+}
+```
+
+You can access the full article [here](https://doi.org/10.3390/cells14070550).
+
+---
+
 ## Overview
 
 MorpHist was developed as part of a research project focused on improving the accuracy and reproducibility of histological analysis. By integrating a AI model for cell detection with advanced tissue segmentation methods, MorpHist facilitates:
