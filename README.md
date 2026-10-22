@@ -8,7 +8,6 @@
   <a href="LICENSE"><img alt="License: PolyForm Strict 1.0.0" src="https://img.shields.io/badge/license-PolyForm%20Strict%201.0.0-62626B"></a>
   <img alt="Python 3.11" src="https://img.shields.io/badge/python-3.11-62626B">
   <img alt="Windows" src="https://img.shields.io/badge/platform-Windows-62626B">
-  <a href="https://github.com/edlmar/MorpHista/actions/workflows/lint.yml"><img alt="Lint" src="https://github.com/edlmar/MorpHista/actions/workflows/lint.yml/badge.svg"></a>
 </p>
 
 **MorpHista** is a desktop application for detecting and counting cells in histological images. It finds interstitial cells of Cajal (ICC) and astrocytes with RF-DETR deep-learning models, measures the tissue area, and reports cell density per mm² of tissue. It handles anything from a single field of view to a 1.5-gigapixel whole-slide TIFF.
@@ -88,8 +87,6 @@ TIFF tiles are decoded on all CPU cores. Detection runs on the GPU in FP16, in b
 | Command | What it does |
 |---|---|
 | `pixi run start` | run the app |
-| `pixi run lint` | check the code with ruff |
-| `pixi run format` | format the code with ruff |
 | `pixi run build` | package the app as `dist/MorpHista/MorpHista.exe`; put `models/` next to the `.exe` |
 
 ```

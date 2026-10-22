@@ -56,25 +56,14 @@ torchvision = { version = ">=0.22", index = "https://download.pytorch.org/whl/cu
 
 [tool.pixi.feature.dev.pypi-dependencies]
 pyinstaller = "*"
-ruff = "*"
 
 [tool.pixi.environments]
 default = { features = ["dev"], solve-group = "main" }
 
 [tool.pixi.tasks]
 start = "python app.py"
-lint = "ruff check . && ruff format --check ."
-format = "ruff format . && ruff check --fix ."
 # Desktop build -> dist/MorpHista/MorpHista.exe (put models/ next to the .exe)
 build = "nicegui-pack --windowed --name MorpHista --icon assets/icon.ico --add-data assets;assets --add-data morphista/static;morphista/static app.py"
 # RF-DETR Large training on training/datasets/<name> (COCO) -> models/rfdetr_large_<name>/
 train-icc = { cmd = "python -c \"from rfdetr import RFDETRLarge; RFDETRLarge().train(dataset_dir='training/datasets/icc', output_dir='models/rfdetr_large_icc', epochs=300, batch_size=16, grad_accum_steps=1, device='cuda', run_test=False, early_stopping=True, early_stopping_patience=20, early_stopping_min_delta=0.002, early_stopping_use_ema=True)\"" }
 train-astro = { cmd = "python -c \"from rfdetr import RFDETRLarge; RFDETRLarge().train(dataset_dir='training/datasets/astro', output_dir='models/rfdetr_large_astro', epochs=300, batch_size=16, grad_accum_steps=1, device='cuda', run_test=False, early_stopping=True, early_stopping_patience=20, early_stopping_min_delta=0.002, early_stopping_use_ema=True)\"" }
-
-# ---------------------------------------------------------------- ruff
-[tool.ruff]
-line-length = 120
-target-version = "py311"
-
-[tool.ruff.lint]
-select = ["E", "F", "W", "I", "UP", "B", "SIM"]
