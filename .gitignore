@@ -1,0 +1,23 @@
+# environment and caches
+.pixi/
+__pycache__/
+*.pyc
+.nicegui/
+.ruff_cache/
+
+# build output (pixi run build)
+build/
+dist/
+*.spec
+
+# local only: tests, models, example slides, training data, research scripts
+tests/
+models/
+samples/
+training/
+crc/
+
+# outputs the app writes next to analysed images
+Detections/
+Masks/
+CellInstanceMasks/

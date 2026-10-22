@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use MorpHista in your research, please cite the article below."
+title: MorpHista
+type: software
+version: 2.0.0
+date-released: 2026-10-22
+license-url: https://polyformproject.org/licenses/strict/1.0.0
+repository-code: https://github.com/edlmar/MorpHista
+authors:
+  - family-names: Edelmers
+    given-names: Edgars
+    email: edgars.edelmers@disroot.org
+keywords:
+  - histology
+  - digital pathology
+  - cell detection
+  - interstitial cells of Cajal
+  - astrocytes
+preferred-citation:
+  type: article
+  title: >-
+    Utilisation of Deep Neural Networks for Estimation of Cajal Cells in the Anal Canal Wall
+    of Patients with Advanced Haemorrhoidal Disease Treated by LigaSure Surgery
+  authors:
+    - family-names: Fišere
+      given-names: I.
+    - family-names: Edelmers
+      given-names: E.
+    - family-names: Svirskis
+      given-names: Š.
+    - family-names: Groma
+      given-names: V.
+  journal: Cells
+  year: 2025
+  volume: 14
+  issue: 7
+  start: 550
+  doi: 10.3390/cells14070550

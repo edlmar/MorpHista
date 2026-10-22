@@ -1,0 +1,80 @@
+[project]
+name = "morphista"
+version = "2.0.0"
+description = "Desktop app for detecting and counting cells in histological images with RF-DETR."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Edgars Edelmers", email = "edgars.edelmers@disroot.org" }]
+requires-python = ">=3.11"
+keywords = ["histology", "digital pathology", "cell detection", "whole slide imaging", "rf-detr"]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: Other/Proprietary License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dependencies = [
+    "imagecodecs>=2026.3.6",
+    "nicegui[native]>=2.0",
+    "numpy",
+    "onnxruntime>=1.16",
+    "opencv-python>=4.8",
+    "pillow>=10.0",
+    "rfdetr[train]",
+    "supervision",
+    "tifffile>=2026.3.3",
+    "torch>=2.7",
+    "torchvision>=0.22",
+]
+
+[project.urls]
+Repository = "https://github.com/edlmar/MorpHista"
+Article = "https://doi.org/10.3390/cells14070550"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["morphista"]
+
+# ---------------------------------------------------------------- pixi
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+[tool.pixi.dependencies]
+python = "3.11.*"
+
+[tool.pixi.pypi-dependencies]
+morphista = { path = ".", editable = true }
+# CUDA 12.8 builds (needed for RTX 50xx / sm_120); only these two come from the PyTorch index
+torch = { version = ">=2.7", index = "https://download.pytorch.org/whl/cu128" }
+torchvision = { version = ">=0.22", index = "https://download.pytorch.org/whl/cu128" }
+
+[tool.pixi.feature.dev.pypi-dependencies]
+pyinstaller = "*"
+ruff = "*"
+
+[tool.pixi.environments]
+default = { features = ["dev"], solve-group = "main" }
+
+[tool.pixi.tasks]
+start = "python app.py"
+lint = "ruff check . && ruff format --check ."
+format = "ruff format . && ruff check --fix ."
+# Desktop build -> dist/MorpHista/MorpHista.exe (put models/ next to the .exe)
+build = "nicegui-pack --windowed --name MorpHista --icon assets/icon.ico --add-data assets;assets --add-data morphista/static;morphista/static app.py"
+# RF-DETR Large training on training/datasets/<name> (COCO) -> models/rfdetr_large_<name>/
+train-icc = { cmd = "python -c \"from rfdetr import RFDETRLarge; RFDETRLarge().train(dataset_dir='training/datasets/icc', output_dir='models/rfdetr_large_icc', epochs=300, batch_size=16, grad_accum_steps=1, device='cuda', run_test=False, early_stopping=True, early_stopping_patience=20, early_stopping_min_delta=0.002, early_stopping_use_ema=True)\"" }
+train-astro = { cmd = "python -c \"from rfdetr import RFDETRLarge; RFDETRLarge().train(dataset_dir='training/datasets/astro', output_dir='models/rfdetr_large_astro', epochs=300, batch_size=16, grad_accum_steps=1, device='cuda', run_test=False, early_stopping=True, early_stopping_patience=20, early_stopping_min_delta=0.002, early_stopping_use_ema=True)\"" }
+
+# ---------------------------------------------------------------- ruff
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
