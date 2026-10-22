@@ -35,19 +35,25 @@
 
 ## Quick start
 
-MorpHista runs on Windows with an NVIDIA GPU (CUDA 12.8). It also runs on the CPU, much more slowly. The environment is managed with [pixi](https://pixi.sh):
+You need Windows 10 or 11 (64-bit), an internet connection for the first start, and about 12 GB of free disk space. An NVIDIA GPU makes detection fast; without one it runs on the CPU, much more slowly. No programming tools are needed.
 
-```bash
-git clone https://github.com/edlmar/MorpHista.git
-cd MorpHista
-pixi install
-pixi run start
-```
+1. **Download** `MorpHista-<version>.zip` from the [Releases](../../releases) page (the newest is at the top). It includes the trained ICC model.
+2. **Unpack.** Right-click the downloaded file, choose **Extract All…**, and pick a place to keep the program, for example *Documents*. Do not start the program from inside the ZIP file.
+3. **Start.** Open the extracted folder and double-click **Start MorpHista**.
+   - If Windows says *"Windows protected your PC"*, click **More info**, then **Run anyway**.
+   - The first start downloads Python, PyTorch and the other packages the program needs (about 5 GB). This takes 5–20 minutes, depending on the connection; a black window shows the progress. Keep it open.
+   - When it is done, the program opens and a **MorpHista** shortcut appears on your desktop.
+4. **Next time**, double-click the desktop shortcut.
 
-Then:
+In the program:
 1. Choose the cell type and a model.
 2. Pick an image or a folder.
 3. Press **Detect and count**.
+
+**If something goes wrong:** start *Start MorpHista* again. If the program does not open, the file `morphista.log` in the program folder holds the details; send it to the author.
+
+**Update:** download and extract the new release, then start it once the same way (the shortcut is updated).
+**Remove:** delete the program folder and the desktop shortcut.
 
 ## Models
 
@@ -84,10 +90,20 @@ TIFF tiles are decoded on all CPU cores. Detection runs on the GPU in FP16, in b
 
 ## Development
 
+The environment is managed with [pixi](https://pixi.sh):
+
+```bash
+git clone https://github.com/edlmar/MorpHista.git
+cd MorpHista
+pixi run start
+```
+
 | Command | What it does |
 |---|---|
-| `pixi run start` | run the app |
-| `pixi run build` | package the app as `dist/MorpHista/MorpHista.exe`; put `models/` next to the `.exe` |
+| `pixi run start` | run the app (the first run installs the environment) |
+| `pixi run -e dev build` | package the app as `dist/MorpHista/MorpHista.exe`; put `models/` next to the `.exe` |
+
+`Start MorpHista.cmd` does the same for users: it installs pixi and the environment on the first start, creates the desktop shortcut, and starts the window with `pythonw` (no console; output goes to `morphista.log`).
 
 ```
 app.py                  entry point

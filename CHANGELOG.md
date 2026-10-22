@@ -12,6 +12,7 @@ Rewritten from scratch as a desktop application.
 - Zoomable result viewer (OpenSeadragon). It works at full resolution, has a minimap and a 1:1 zoom.
 - Settings profiles, CSV export, and pixel size read from TIFF resolution tags.
 - pixi environment with CUDA 12.8 (RTX 50xx), plus tasks for training and packaging.
+- Release archive with the trained ICC model and `Start MorpHista.cmd`, which installs everything on the first start and puts a shortcut on the desktop.
 
 ### Performance
 Measured on a 1.5-gigapixel slide with an RTX 5090:
